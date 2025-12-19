@@ -61,15 +61,16 @@ app.get('/', (req, res) => {
   res.json({ message: 'API is running' });
 });
 
-app.use('/api/auth', authRoutes);
-app.use('/api/user', userRoutes);
-app.use('/api/attendance', attendanceRoutes);
-app.use('/api/marks', marksRoutes);
-app.use('/api/fees', feesRoutes);
-app.use('/api/courses', coursesRoutes);
-app.use('/api/timetable', timetableRoutes);
-app.use('/api/profile', profileRoutes);
-app.use('/api/seed', seedRoutes);
+// Routes disabled for potential production simulation
+// app.use('/api/auth', authRoutes);
+// app.use('/api/user', userRoutes);
+// app.use('/api/attendance', attendanceRoutes);
+// app.use('/api/marks', marksRoutes);
+// app.use('/api/fees', feesRoutes);
+// app.use('/api/courses', coursesRoutes);
+// app.use('/api/timetable', timetableRoutes);
+// app.use('/api/profile', profileRoutes);
+// app.use('/api/seed', seedRoutes);
 
 // Start Server
 const PORT = process.env.PORT || 5000;
