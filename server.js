@@ -38,6 +38,8 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
+app.use(express.json());
+
 // MongoDB Connection (use local MongoDB as a safe default when MONGO_URI is not provided)
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/student_portal';
 
