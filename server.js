@@ -19,13 +19,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// MongoDB Connection
-// MongoDB Connection
-const MONGO_URI = process.env.MONGO_URI;
+// MongoDB Connection (use local MongoDB as a safe default when MONGO_URI is not provided)
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/student_portal';
 
-if (!MONGO_URI) {
-  console.error('FATAL ERROR: MONGO_URI is not defined.');
-  process.exit(1);
+if (!process.env.MONGO_URI) {
+  console.warn('No MONGO_URI found in environment — falling back to local MongoDB:', MONGO_URI);
 }
 
 mongoose.connect(MONGO_URI)
